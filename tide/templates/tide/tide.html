@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tábua de Maré - {{ cidade }}</title>
+</head>
+<body>
+    <h1>Tábua de Maré - {{ cidade }}</h1>
+
+    {% if data.error %}
+        <p>Erro ao buscar dados: {{ data.error }}</p>
+    {% else %}
+        <ul>
+            {% for item in data['marés'] %}
+                <li>Data: {{ item.date }}, Altura: {{ item.height }}m, Tipo: {{ item.type }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
